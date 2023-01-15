@@ -1,3 +1,4 @@
+/*Estilos Generales*/
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -16,7 +17,7 @@
   .inactive{
 display: none;
   }
-
+/*Navbar (General)*/
   nav {
     display: flex;
     justify-content: space-between;
@@ -82,6 +83,7 @@ display: none;
     align-items: center;
   }
 
+/* Menu en desktop*/
 
   .desktop-menu{
     position: absolute;
@@ -124,8 +126,46 @@ font-size: var(--sm);
 }
 
 
+/* Menu en Mobile*/
+.menu-mobile{
 
+  position: absolute;
+  top: 60px;
+  left: 0;
+  padding: 24px;
+}
+.menu-mobile a{
+ text-decoration: none;
+ color:
+ var(--black);
+ font-weight: bold;
+ /* margin-bottom: 24px; */
+}
+.menu-mobile ul{
+  padding:0;
+  margin:24px 0 0;
+  list-style-type: none;
+}
+.menu-mobile ul:nth-child(1){
+border-bottom: 1px solid var(--very-light-pink);
+}
+.menu-mobile ul:nth-child(3) {
+  position: absolute;
+bottom: 0;
+}
+.menu-mobile ul li{
+  margin-bottom: 24px;
+}
+.email{
+  font-size: var(--sm);
+  font-weight: 300 !important;
+}
+.menu-mobile .sign-out{
+  color: var(--hospital-green) ;
+  font-size: var(--sm);
+}
   
+
   @media (max-width: 640px) {
     .menu {
       display: block;
@@ -136,4 +176,14 @@ font-size: var(--sm);
     .navbar-email {
       display: none;
     }
+    .desktop-menu{
+      display: none;
+    }
+  
+  }
+  
+  @media (min-width: 640px) {
+   .menu-mobile{
+    display: none;
+   }
   }
