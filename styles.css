@@ -66,6 +66,7 @@ display: none;
     margin-right: 12px;
   }
   .navbar-shopping-cart {
+    cursor: pointer;
     position: relative;
   }
   .navbar-shopping-cart div {
@@ -128,11 +129,11 @@ font-size: var(--sm);
 
 /* Menu en Mobile*/
 .menu-mobile{
-
+background-color: var(--white);
   position: absolute;
   top: 60px;
   left: 0;
-  padding: 24px;
+  
 }
 .menu-mobile a{
  text-decoration: none;
@@ -150,7 +151,7 @@ font-size: var(--sm);
 border-bottom: 1px solid var(--very-light-pink);
 }
 .menu-mobile ul:nth-child(3) {
-  position: absolute;
+
 bottom: 0;
 }
 .menu-mobile ul li{
@@ -166,24 +167,194 @@ bottom: 0;
 }
   
 
-  @media (max-width: 640px) {
-    .menu {
-      display: block;
-    }
-    .navbar-left ul {
-      display: none;
-    }
-    .navbar-email {
-      display: none;
-    }
-    .desktop-menu{
-      display: none;
-    }
+/*Aside*/
+
+.product-detail {
+  background-color: var(--white);
+  width: 360px;
+  padding: 24px;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+}
+.title-container {
+  display: flex;
+}
+.title-container img {
+  transform: rotate(180deg);
+  margin-right: 14px;
+}
+.title {
+  font-size: var(--lg);
+  font-weight: bold;
+}
+.order {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  background-color: var(--text-input-field);
+  margin-bottom: 24px;
+  border-radius: 8px;
+  padding: 0 24px;
+}
+.order p:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+}
+.order p span:nth-child(1) {
+  font-size: var(--md);
+  font-weight: bold;
+}
+.order p:nth-child(2) {
+  text-align: end;
+  font-weight: bold;
+}
+.shopping-cart {
+ 
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.shopping-cart figure {
+  margin: 0;
+}
+.shopping-cart figure img {
+
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.shopping-cart p:nth-child(2) {
+  color: var(--very-light-pink);
+}
+.shopping-cart p:nth-child(3) {
+  font-size: var(--md);
+  font-weight: bold;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+  
+  margin-bottom: 30px;
+}
+
+.cards-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,240px) ;
+  gap:26px;
+  place-content: center;
+}
+
+.product-card{
+  border: 1px solid #e6e6e6;
+    border-radius: 10px;
+  
+  margin: 25px;
+    background: linear-gradient(26deg, var(--hospital-green), transparent);
+
+  width: 240px;
+}
+.product-card img{
+  width: 240px;
+  height: 240px;
+  border-radius:10px 10px 0px 0px;
+  object-fit: cover; /*Esta propiedad hará que mi imagen tome su tamaño original o sus medidas iguales adecuandose a las medidas independientes que le pongamos nosotros*/
+}
+.product-info {
+display: flex;
+justify-content:space-between;
+align-items:center;
+margin-top: 12px;
+margin-bottom: 12px;
+}
+.product-info div{
+margin-left: 20px;
+}
+figure{
+cursor: pointer ;
+margin:0;
+}
+.product-info figure img{
+  width: 35px;
+  height: 35px;
+}
+.product-info div p:nth-child(1){
+font-weight: bold;
+font-size: var(--md);
+margin-top: 0;
+margin-bottom: 4px;
+}
+.product-info div p:nth-child(2){
+
+font-size: var(--sm);
+margin-top: 0;
+margin-bottom: 0;
+color: var(--white);
+}
+
+.product-img{
+border:solid 1px #e6e6e6;
+}
+.main-container{
+  margin: 20px;
+}
+
+
+@media (max-width: 640px) {
+  
+  
+  .cards-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,140px) ;
+  gap:26px;
+  }
+  .product-card{
+  width: 140px;
+  }
+  .product-card img{
+  width: 140px;
+  height: 140px;
   
   }
+      .menu {
+        cursor: pointer;
+        display: block;
+      }
+      .navbar-left ul {
+        display: none;
+      }
+      .navbar-email {
+        display: none;
+      }
+      .desktop-menu{
+        display: none;
+      }
+  .product-detail {
+    width: 100%;
   
+}
+.menu-mobile{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+
+}
+}
+
   @media (min-width: 640px) {
    .menu-mobile{
     display: none;
+  
    }
   }
