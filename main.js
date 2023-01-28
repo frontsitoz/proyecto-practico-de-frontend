@@ -3,8 +3,10 @@ let desktopMenu = document.querySelector('.desktop-menu')
 let menuMobile = document.querySelector('.menu-mobile')
 let iconMenu = document.querySelector('.menu') 
 let menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-let aside = document.querySelector('.product-detail')
+let shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 let cardsContainer = document.querySelector('.cards-container')
+let productDetailContainer = document.querySelector('#productDetail')
+let productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 user.addEventListener('click', toggleDesktopMenu) //Este toggleDesktopMenu solo es el nombre de una función
 
@@ -12,13 +14,14 @@ iconMenu.addEventListener('click', toggleMenuMobile)
 
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu(){
     
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
     
     if(!isAsideClosed ){
-        aside.classList.add('inactive')
+        shoppingCartContainer.classList.add('inactive')
         
     }
     //El método toggle permite cada vez que se ejecuta, cambia de estado la visibilidad del elemento HTML, es decir si está visible pasa a oculto y si se encuentra oculto pasa a visible. 
@@ -29,12 +32,13 @@ desktopMenu.classList.toggle('inactive')
 }
 
 function toggleMenuMobile(){
-const isAsideClosed = aside.classList.contains('inactive')
+const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
 
 if(!isAsideClosed ){
-aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
 
 }
+closeProductDetailAside
 
 menuMobile.classList.toggle('inactive')
 }
@@ -52,14 +56,30 @@ if(!isMenuMobileClosed){
     
 }
 
-if(!isDesktopMenuClosed){
-    desktopMenu.classList.add('inactive')
+const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
+
+if (!isProductDetailClosed){
+productDetailContainer.classList.add('inactive')
 }
 
-aside.classList.toggle('inactive')
+
+shoppingCartContainer.classList.toggle('inactive')
 
 
 }
+
+function openProductDetailAside(){
+shoppingCartContainer.classList.add('inactive')
+
+    productDetailContainer.classList.remove('inactive')
+}
+ 
+function closeProductDetailAside(){
+
+      productDetailContainer.classList.add('inactive')
+ 
+}
+
 
 const productList = []
 productList.push({
@@ -194,7 +214,8 @@ function renderProducts (arr){
     
         const productImage = document.createElement('img')
         productImage.setAttribute('src', product.image)
-    
+    productImage.addEventListener('click',openProductDetailAside)
+
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
     
